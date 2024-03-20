@@ -4,12 +4,9 @@
 // the user will be prompted to put the numbers he remember
 
 /* 
-random numbers function
-
 let numArray = [here we will put our 5 numbers];
 let userNumbers = [here we will save the numbers prompted by the user];
 let rightNumbers = [here we will store the right numbers prompted by the user];
-
 */
 
 // we take our buttons
@@ -29,22 +26,44 @@ console.log(boxContainer);
 let boxContainer2 = document.getElementById('boxContainer2');
 console.log(boxContainer2);
 
+let numArray = [];
 
 // this button will start the game:
 playBtn.addEventListener('click', function() {
-    console.log('giochiamo');
     boxContainer2.classList.add('d-none');
+    console.log('giochiamo');
     let nuovaArray = gnrNum(1,100);
     drawBox(nuovaArray);
+    playBtn.disabled = true;
 });
 
 resultButton.addEventListener('click', function(){
     console.log('risultato');
+    let userInput1 = parseInt(document.getElementById('numberInput1').value);
+    let userInput2 = parseInt(document.getElementById('numberInput2').value);
+    let userInput3 = parseInt(document.getElementById('numberInput3').value);
+    let userInput4 = parseInt(document.getElementById('numberInput4').value);
+    let userInput5 = parseInt(document.getElementById('numberInput5').value);
+    userNumbers = [userInput1,userInput2,userInput3,userInput4,userInput5];
+    console.log(userNumbers);
+    let correct = true ;
+    for (let i = 0; i < 5; i++) {
+        if(userNumbers[i] !== numArray[i]) {
+            correct = false;
+        }
+    }
+    if (correct) {
+        boxContainer2.innerHTML = '<h2>HAI VINTO!</h2>';
+        console.log("hai vinto!");
+    } else {
+        boxContainer2.innerHTML = '<h2>HAI PERSO!</h2>';
+        console.log("hai sbagliato!");
+    }
+    playBtn.disabled = false;
 });
 
 // this function generates our 5 randomNumbers:
 function gnrNum(min, max){
-    let numArray = [];
     while (numArray.length < 5) {
         let casualNum = getRndInteger (min, max);
         console.log(casualNum);
@@ -65,7 +84,7 @@ function drawBox (array){
     boxContainer.appendChild(elBox);
     // here we set the timeout and what the machine will have to do after the timeout ends
     setTimeout (function() {
-    elBox.classList.add('invisible')
+    elBox.classList.add('d-none');
     boxContainer2.classList.remove('d-none');
     }, 5000)
 }};
@@ -77,11 +96,12 @@ function getRndInteger(min, max) {
 };
 
 // still need to do: 
-
 /*
-A prompt from the user will be required after the timeout by printing it into the window
+A prompt from the user will be required after the timeout by printing it into the window: done
 
-the machine will print to the user a message and wich will ask to put the numbers he remembers
+the machine will print to the user a message and wich will ask to put the numbers he remembers: done
+
+
 
 after the user 'click' on our "result" btn the machine will do a verification between the
 first numbers we printed and those the user will put in.
