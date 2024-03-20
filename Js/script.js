@@ -3,29 +3,18 @@
 //after 30 seconds these numbers will disappear.
 // the user will be prompted to put the numbers he remember
 
-/* 
-let numArray = [here we will put our 5 numbers];
-let userNumbers = [here we will save the numbers prompted by the user];
-let rightNumbers = [here we will store the right numbers prompted by the user];
-*/
-
 // we take our buttons
 const playBtn = document.getElementById('playBtn');
 const resultButton = document.getElementById('result');
-
 // here we have our variables:
 let userNumbers = [];
 console.log(userNumbers,'userNumbers');
-
 let rightNumbers = [];
 console.log(rightNumbers,'rightNumbers');
-
 let boxContainer = document.getElementById('boxContainer');
 console.log(boxContainer);
-
 let boxContainer2 = document.getElementById('boxContainer2');
 console.log(boxContainer2);
-
 let numArray = [];
 
 // this button will start the game:
@@ -37,6 +26,7 @@ playBtn.addEventListener('click', function() {
     playBtn.disabled = true;
 });
 
+// this is our result button:
 resultButton.addEventListener('click', function(){
     console.log('risultato');
     let userInput1 = parseInt(document.getElementById('numberInput1').value);
@@ -44,14 +34,16 @@ resultButton.addEventListener('click', function(){
     let userInput3 = parseInt(document.getElementById('numberInput3').value);
     let userInput4 = parseInt(document.getElementById('numberInput4').value);
     let userInput5 = parseInt(document.getElementById('numberInput5').value);
+    // we put our values into an array:
     userNumbers = [userInput1,userInput2,userInput3,userInput4,userInput5];
     console.log(userNumbers);
+    // we compare the two arrays:
     let correct = true ;
     for (let i = 0; i < 5; i++) {
         if(userNumbers[i] !== numArray[i]) {
             correct = false;
         }
-    }
+    } 
     if (correct) {
         boxContainer2.innerHTML = '<h2>HAI VINTO!</h2>';
         console.log("hai vinto!");
@@ -86,7 +78,7 @@ function drawBox (array){
     setTimeout (function() {
     elBox.classList.add('d-none');
     boxContainer2.classList.remove('d-none');
-    }, 5000)
+    }, 30000)
 }};
 
 
