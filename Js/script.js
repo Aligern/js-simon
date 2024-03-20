@@ -63,7 +63,7 @@ function drawBox (array){
     elBox.classList.add('box');
     elBox.textContent = array[i];
     boxContainer.appendChild(elBox);
-    // here we set
+    // here we set the timeout and what the machine will have to do after the timeout ends
     setTimeout (function() {
     elBox.classList.add('invisible')
     boxContainer2.classList.remove('d-none');
@@ -77,11 +77,17 @@ function getRndInteger(min, max) {
 };
 
 // still need to do: 
+
 /*
-A prompt from the user will be required after the timeout,
-the machine will print to the user a message wich will ask to put the numbers he remembers
+A prompt from the user will be required after the timeout by printing it into the window
+
+the machine will print to the user a message and wich will ask to put the numbers he remembers
+
 after the user 'click' on our "result" btn the machine will do a verification between the
 first numbers we printed and those the user will put in.
+
+
 if the check is correct the machine will print an "Hai vinto!" message and the game will end.
+
 if the check is not correct the machine will print a different message: "hai sbagliato!" then end the game.
 */
