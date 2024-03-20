@@ -22,29 +22,24 @@ return
 // we take our button
 const playBtn = document.getElementById('playBtn');
 console.log(playBtn,'giochiamo');
-const randomNumbers = gnrNum(1,50);
+
 let userNumbers = [];
 console.log(userNumbers,'userNumbers');
 let rightNumbers = [];
 console.log(rightNumbers,'rightNumbers');
-
 let boxContainer = document.getElementById('boxContainer');
 console.log(boxContainer);
 
-drawBox();
+
 
 // this button will start the game:
- 
 playBtn.addEventListener('click', function() {
-    gnrNum(1,50);
-    console.log(randomNumbers);
-    drawBox(randomNumbers);
-
+    let nuovaArray = gnrNum(1,50);
+    drawBox(nuovaArray);
 });
 
 // this function generates our 5 randomNumbers:
 function gnrNum(min, max){
-    //console.log('Sono in gnrNum')
     let numArray = [];
     while (numArray.length < 5) {
         let casualNum = getRndInteger (min, max);
@@ -53,18 +48,19 @@ function gnrNum(min, max){
         numArray.push(casualNum);
     }
     }
-    // here we print our boxes into our div:
     return numArray;
 };
 
 // this function will create our boxes with the numbers
-function drawBox (numArray, boxContainer){
+function drawBox (pippo){
+    boxContainer.innerHTML = '';
     for (let i = 0; i < 5; i++) {
     const elBox = document.createElement('div');
     elBox.classList.add('box');
-    elBox.textContent = numArray[i];
+    elBox.textContent = pippo[i];
+    boxContainer.appendChild(elBox);
     setTimeout (function() {
-        drawBox.classList.add('invisible')
+    elBox.classList.add('invisible')
     }, 30000)
 }};
 
