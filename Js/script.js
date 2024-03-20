@@ -9,7 +9,7 @@ random numbers function
 
 let numArray = [here we will put our 5 numbers];
 let userNumbers = [here we will save the numbers prompted by the user];
-let rightNumbers = [here we will store the right numbers prompted by the user]
+let rightNumbers = [here we will store the right numbers prompted by the user];
 
 while ( numArray.lenght < 5) {
     generate number 
@@ -21,20 +21,56 @@ return
 */
 
 // we take our button
-const buttonGenerate = document.getElementById('idbottone');
+const buttonGenerate = document.getElementById('playBtn');
 
-buttonGenerate.addEventListener('click', function);
+const randomNumbers = gnrNum(1,50);
 
-function gnrNum(){
+let userNumbers = [];
+
+let rightNumbers = [];
+
+console.log(randomNumbers);
+
+let boxContainer = document.getElementById('boxContainer');
+
+drawBox();
+
+// buttonGenerate.addEventListener( 'click', function() ) {
+
+// };
+
+
+// this function generates our 5 randomNumbers:
+function gnrNum(min, max){
     //console.log('Sono in gnrNum')
-    // while loop here
-    drawBox(numero);
-   // appendo al contenitore il box
+    let numArray = [];
+    while (numArray.length < 5) {
+        let randomNum = getRndInteger (min, max);
+        // console.log(randomNum)
+    if (!numArray.includes(randomNum)) {
+        numArray.push(randomNum);
+    }
+    }
+    
+//    // appendo al contenitore il box
 
-   // timer here
-}
+//    // timer here
+    
+    return numArray;
+};
 
-// this function will create our boxes with the numbers:
+
+
+// this function will create our boxes with the numbers
 function drawBox (){
+    const elBox = document.createElement('div');
+    boxContainer.appendChild(elBox);
+    elBox.classList.add('classi qui');
     //return the created box
-}
+};
+
+
+// Number randomizer function:
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  };
