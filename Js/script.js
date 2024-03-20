@@ -94,20 +94,3 @@ function drawBox (array){
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 };
-
-// still need to do: 
-/*
-A prompt from the user will be required after the timeout by printing it into the window: done
-
-the machine will print to the user a message and wich will ask to put the numbers he remembers: done
-
-
-
-after the user 'click' on our "result" btn the machine will do a verification between the
-first numbers we printed and those the user will put in.
-
-
-if the check is correct the machine will print an "Hai vinto!" message and the game will end.
-
-if the check is not correct the machine will print a different message: "hai sbagliato!" then end the game.
-*/
