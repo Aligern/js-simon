@@ -23,23 +23,24 @@ return
 const playBtn = document.getElementById('playBtn');
 console.log(playBtn,'giochiamo');
 const randomNumbers = gnrNum(1,50);
-console.log(randomNumbers);
 let userNumbers = [];
 console.log(userNumbers,'userNumbers');
 let rightNumbers = [];
 console.log(rightNumbers,'rightNumbers');
+
 let boxContainer = document.getElementById('boxContainer');
 console.log(boxContainer);
+
 drawBox();
 
 // this button will start the game:
  
 playBtn.addEventListener('click', function() {
     gnrNum(1,50);
-    setTimeout (function() {
-    drawBox.classList.add('invisible')
-    }, 30000)
-}); 
+    console.log(randomNumbers);
+    drawBox(randomNumbers);
+
+});
 
 // this function generates our 5 randomNumbers:
 function gnrNum(min, max){
@@ -53,27 +54,21 @@ function gnrNum(min, max){
     }
     }
     // here we print our boxes into our div:
-    for (let i = 0; i < 5; i++) {
-        drawBox(numArray[i]);
-    };
     return numArray;
 };
 
-
-// time function:
-function Time() {
-    let time = new Date();
-    let seconds = time.getSeconds();
-    console.log(seconds);
-};
-
 // this function will create our boxes with the numbers
-function drawBox (){
+function drawBox (numArray, boxContainer){
+    for (let i = 0; i < 5; i++) {
     const elBox = document.createElement('div');
-    return drawBox;
-}
+    elBox.classList.add('box');
+    elBox.textContent = numArray[i];
+    setTimeout (function() {
+        drawBox.classList.add('invisible')
+    }, 30000)
+}};
 
 // Number randomizer function:
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
-  };
+};
