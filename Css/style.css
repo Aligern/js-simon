@@ -2,10 +2,11 @@
     width: 100px;
     height: 100px;
     line-height: 50px;
-    border: 2px solid black;
+    border: 3px solid black;
     padding: 20px;
     border-radius: 50px;
-    background-color: rgb(0, 250, 0);
+    background-color: rgb(240, 188, 45);
     color: white;
     font-size: 2rem;
+    font-weight: 500;
 }
