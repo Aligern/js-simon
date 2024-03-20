@@ -10,28 +10,42 @@
 
 <body>
     <div class="wrapper vh-100">
-
         <div class="container m-auto text-center d-flex justify-content-center py-4 ">
-            <div id="boxContainer" class="d-flex justify-content-between gap-2 ">
+            <div>
+                <h1>
+                    Simon says
+                </h1>
             </div>
         </div>
 
         <div class="container text-center p-4">
-
-            <input type="text" placeholder="Inserisci numeri">
-            
-            <div class="d-flex justify-content-center">
-                <div>
-                    <button class="btn btn-outline-primary m-2" id="playBtn">
-                        Play
-                    </button>
-                </div>
-                <div>
-                    <button class="btn btn-outline-dark m-2">
-                        invia 
-                    </button>
-                </div>
+            <div id="boxContainer" class="d-flex justify-content-between">
+                    <!-- here we will print our 5 boxes -->
             </div>
+
+            <div>
+                <!-- this button starts the game -->
+                <button class="btn btn-outline-primary m-2" id="playBtn">
+                     Play
+                </button>
+            </div>
+
+            <!-- this container will be showed after the timeout -->
+            <div3 id="boxContainer2">
+                <h4> 
+                    Quali numeri ricordi?
+                </h4>
+
+        <!-- the player will be prompted to put the numbers he saw here -->
+                <input type="text" placeholder="Inserisci numeri">
+
+                <!-- this button will send the player results -->
+                <button class="btn btn-outline-dark m-2" id="result">
+                    invia
+                </button>
+
+        </div>
+
         </div>
     </div>
 
